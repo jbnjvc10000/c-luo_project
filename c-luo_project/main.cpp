@@ -34,12 +34,11 @@ void employment::statistics()
 }
 void main()
 {
-	int menu_num;
 	employment company;
 	char system_y_n = 'y';
 	while (system_y_n == 'y')
 	{
-		char selecte;
+		char selecte[10];
 		cout << "****************************************************************" << endl;
 		cout << "*                                                              *" << endl;
 		cout << "*                    欢迎使用工资管理系统                      *" << endl;
@@ -52,9 +51,15 @@ void main()
 		cout << "*                                                              *" << endl;
 		cout << "****************************************************************" << endl;
 		cin >> selecte;
-		if (selecte >= 49 && selecte <= 52)
+		if (strlen(selecte)>1)
 		{
-			switch (selecte)
+			cout << "输入错误，请重新输入……" << endl;
+			Sleep(1000);
+			system("cls");
+		}
+		else if (selecte[0] >= 49 && selecte[0] <= 52)
+		{
+			switch (selecte[0])
 			{
 			case 49:
 				company.edit();

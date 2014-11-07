@@ -1,18 +1,52 @@
 #include"main.h"
+//登录函数
 char login()
 {
 	char passwd[20] = { 0 }, authenticate[20] = { 0 },temp;
+	int j = 0;
 	strcpy(passwd, "root");
-	cout << "用户登录" << endl << endl << "请输入密码:";
-	int i = 0;
-	while ((temp=getch()) != 13)
+	while (j != 3)
 	{
-		authenticate[i] = temp;
+		int i = 0;
+		cout << "管理员登录" << endl << endl << "请输入密码:";
+		while ((temp = getch()) != 13)
+		{
+			authenticate[i] = temp;
 			cout << "*";
 			i++;
+		}
+		if (strcmp(passwd, authenticate) == 0)
+		{
+			system("cls");
+			cout << "认证成功，正在进入";
+			for (int pp = 1; pp <= 6; pp++)
+			{
+				cout << ".";
+				Sleep(100);
+			}
+			system("cls");
+			return 'y';
+			break;
+		}
+		else
+		{
+			system("cls");
+			j++;
+			if (j != 3) cout << "密码错误，请重新输入" << endl << "还剩" << 3 - j << "次机会" << endl;
+			else
+			{
+				cout << "非法用户，正在退出";
+				for (int pp = 1; pp <= 6; pp++)
+				{
+					cout << ".";
+					Sleep(100);
+				}
+			}
+			Sleep(1500);
+			system("cls");
+		}
 	}
-	if (strcmp(passwd,authenticate)==0)return 'y';
-	else cout << endl << endl << "尔乃非法用户，禁止登入" << endl;
+	
 }
 void employment::edit()
 {
@@ -54,7 +88,7 @@ void main()
 	while (system_y_n == 'y')
 	{
 		char selecte[10];
-		system("cls");
+		//system("cls");
 		cout << "****************************************************************" << endl;
 		cout << "*                                                              *" << endl;
 		cout << "*                    欢迎使用工资管理系统                      *" << endl;
@@ -89,12 +123,13 @@ void main()
 			case 52:
 				system_y_n = 'n';
 				system("cls");
-				cout << "正在退出程序";
+				cout << "正在退出程序" ;
 				for (int pp = 1; pp <= 6; pp++)
 				{
 					Sleep(60);
 					cout << ".";		
 				}
+				cout << endl;
 				break;
 			default:
 				system("cls");

@@ -11,5 +11,5 @@ public:
 	void search();
 	void statistics();
 };
-char login(char x);
+char login();
 void main();

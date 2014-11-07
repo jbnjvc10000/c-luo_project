@@ -1,7 +1,8 @@
 #include <iostream>
 #include<cmath>
-#include<cstring>
+#include<string>
 #include <Windows.h>
+#include<conio.h>
 using namespace std;
 class employment
 {
@@ -10,4 +11,5 @@ public:
 	void search();
 	void statistics();
 };
+char login(char x);
 void main();

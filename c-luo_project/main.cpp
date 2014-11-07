@@ -1,4 +1,19 @@
 #include"main.h"
+char login()
+{
+	char passwd[20] = { 0 }, authenticate[20] = { 0 },temp;
+	strcpy(passwd, "root");
+	cout << "用户登录" << endl << endl << "请输入密码:";
+	int i = 0;
+	while ((temp=getch()) != 13)
+	{
+		authenticate[i] = temp;
+			cout << "*";
+			i++;
+	}
+	if (strcmp(passwd,authenticate)==0)return 'y';
+	else cout << endl << endl << "尔乃非法用户，禁止登入" << endl;
+}
 void employment::edit()
 {
 	system("cls");
@@ -35,10 +50,11 @@ void employment::statistics()
 void main()
 {
 	employment company;
-	char system_y_n = 'y';
+	char system_y_n = login();
 	while (system_y_n == 'y')
 	{
 		char selecte[10];
+		system("cls");
 		cout << "****************************************************************" << endl;
 		cout << "*                                                              *" << endl;
 		cout << "*                    欢迎使用工资管理系统                      *" << endl;

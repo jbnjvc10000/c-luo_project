@@ -8,15 +8,28 @@ void main()
 	{
 		int i = 0;
 		string un, pd;
-		char passwd[20] = { 0 }, temp;
+		char passwd[100] = { 0 }, temp;
 		cout << "登录管理系统" << endl << endl << "请输入用户名：";
 		cin >> un;
 		cout << endl << "请输入密码：";
 		while ((temp = getch()) != 13)
 		{
-			passwd[i] = temp;	
-			cout << "*";
-			i++;
+			if (temp != 8)
+			{
+				passwd[i] = temp;
+				cout << "*";
+				i++;
+			}
+			else if (i > 0)
+			{
+				system("cls");
+				cout << "登录管理系统" << endl << endl << "请输入用户名：" << un << endl << endl << "请输入密码：";
+				for (int j = 1; j < i; j++)
+				{
+					cout << "*";
+				}
+				passwd[--i] = { 0 };
+			}
 		}
 		pd = passwd;
 		user admin(un, pd);
@@ -26,7 +39,7 @@ void main()
 	//界面开始
 	while (system_y_n == 'y')
 	{
-		char selecte[10];
+		char selecte[100];
 		cout << "****************************************************************" << endl;
 		cout << "*                                                              *" << endl;
 		cout << "*                    欢迎使用工资管理系统                      *" << endl;

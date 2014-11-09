@@ -1,94 +1,32 @@
 #include"main.h"
-//登录函数
-char login()
+
+void main()
 {
-	char passwd[20] = { 0 }, authenticate[20] = { 0 },temp;
-	int j = 0;
-	strcpy(passwd, "root");
-	while (j != 3)
+	char system_y_n='n';
+	int time = 1;
+	while (time != 4)
 	{
 		int i = 0;
-		cout << "管理员登录" << endl << endl << "请输入密码:";
+		string un, pd;
+		char passwd[20] = { 0 }, temp;
+		cout << "登录管理系统" << endl << endl << "请输入用户名：";
+		cin >> un;
+		cout << endl << "请输入密码：";
 		while ((temp = getch()) != 13)
 		{
-			authenticate[i] = temp;
+			passwd[i] = temp;	
 			cout << "*";
 			i++;
 		}
-		if (strcmp(passwd, authenticate) == 0)
-		{
-			system("cls");
-			cout << "认证成功，正在进入";
-			for (int pp = 1; pp <= 6; pp++)
-			{
-				cout << ".";
-				Sleep(100);
-			}
-			system("cls");
-			return 'y';
-			break;
-		}
-		else
-		{
-			system("cls");
-			j++;
-			if (j != 3) cout << "密码错误，请重新输入" << endl << "还剩" << 3 - j << "次机会" << endl;
-			else
-			{
-				cout << "非法用户，正在退出";
-				for (int pp = 1; pp <= 6; pp++)
-				{
-					cout << ".";
-					Sleep(100);
-				}
-			}
-			Sleep(1500);
-			system("cls");
-		}
+		pd = passwd;
+		user admin(un, pd);
+		if ((system_y_n = admin.login(time)) == 'y')break;
+		else time++;
 	}
-	
-}
-void employment::edit()
-{
-	system("cls");
-	cout << "开发中";
-	for (int pp = 1; pp <= 6; pp++)
-	{
-		cout << ".";
-		Sleep(100);
-	}
-	system("cls");
-}
-void employment::search()
-{	
-	system("cls");
-	cout << "开发中";
-	for (int pp = 1; pp <= 6; pp++)
-	{
-		cout << ".";
-		Sleep(100);
-	}
-	system("cls");
-}
-void employment::statistics()
-{
-	system("cls");
-	cout << "开发中";
-	for (int pp = 1; pp <= 6; pp++)
-	{
-		cout << ".";
-		Sleep(100);
-	}
-	system("cls");
-}
-void main()
-{
-	employment company;
-	char system_y_n = login();
+	//界面开始
 	while (system_y_n == 'y')
 	{
 		char selecte[10];
-		//system("cls");
 		cout << "****************************************************************" << endl;
 		cout << "*                                                              *" << endl;
 		cout << "*                    欢迎使用工资管理系统                      *" << endl;
@@ -112,22 +50,43 @@ void main()
 			switch (selecte[0])
 			{
 			case 49:
-				company.edit();
+				system("cls");
+				cout << "开发中";
+				for (int pp = 1; pp <= 6; pp++)
+				{
+					cout << ".";
+					Sleep(100);
+				}
+				system("cls");
 				break;
 			case 50:
-				company.search();
+				system("cls");
+				cout << "开发中";
+				for (int pp = 1; pp <= 6; pp++)
+				{
+					cout << ".";
+					Sleep(100);
+				}
+				system("cls");
 				break;
 			case 51:
-				company.statistics();
+				system("cls");
+				cout << "开发中";
+				for (int pp = 1; pp <= 6; pp++)
+				{
+					cout << ".";
+					Sleep(100);
+				}
+				system("cls");
 				break;
 			case 52:
 				system_y_n = 'n';
 				system("cls");
-				cout << "正在退出程序" ;
+				cout << "正在退出程序";
 				for (int pp = 1; pp <= 6; pp++)
 				{
 					Sleep(60);
-					cout << ".";		
+					cout << ".";
 				}
 				cout << endl;
 				break;
@@ -138,8 +97,12 @@ void main()
 		}
 		else
 		{
-			cout << "输入错误，请重新输入……" << endl;
-			Sleep(1000);
+			cout << "输入错误，请重新输入";
+			for (int pp = 1; pp <= 6; pp++)
+			{
+				Sleep(60);
+				cout << ".";
+			}
 			system("cls");
 		}
 	}

@@ -42,6 +42,7 @@ char user::login(int time)
 		return 'n';
 	}
 }
+
 //主界面调用函数
 void menu(char menu_y_n)
 {
@@ -128,3 +129,10 @@ void menu(char menu_y_n)
 		}
 	}
 }
+
+//经理类_函数
+void manager::pri2()
+{
+	cout << worknum << workname << post << salary << endl;
+}
+

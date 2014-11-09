@@ -2,7 +2,7 @@
 
 void main()
 {
-	//用户登录
+	//用户登录--与后面无关--OK
 	char menu_y_n;
 	int time = 1;
 	while (time != 4)
@@ -40,6 +40,13 @@ void main()
 		if ((menu_y_n = admin.login(time)) == 'y')break;
 		else time++;
 	}
-	//主界面
+
+	//主界面--用于调用完其他类之后返回主界面，直接调用menu("y");即可
 	menu(menu_y_n);
+
+	manager ma(1, "2", "3", 4);
+	tech te(5, "6", "7", 8);
+	ma.pri2();
+	te.pri2();
+	employment company;
 }
